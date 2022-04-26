@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LanguageExt.UnitsOfMeasure;
+using System;
+using UnitsNet;
 
 namespace Exercises.Level1;
 
@@ -38,7 +40,7 @@ public class Logic1
     {
         throw new NotImplementedException();
     }
-
+    
     /// <summary>
     /// The squirrels in Palo Alto spend most of the day playing. In particular, they play if the
     /// temperature is between 60 and 90 (inclusive). Unless it is summer, then the upper limit is
@@ -50,10 +52,23 @@ public class Logic1
     /// squirrelPlay(95, true) → true
     /// </summary>
     public bool SquirrelPlay(int temp, bool isSummer)
-    {
-        throw new NotImplementedException();
-    }
 
+    {
+        int higherTemp = 90;
+
+        if (isSummer)
+        {
+            higherTemp += 10;
+        }
+        if(temp >=60 && temp <= higherTemp )
+        {
+            return true;
+        }
+       
+
+        return false;
+    }
+  
     /// <summary>
     /// You are driving a little too fast, and a police officer stops you. Write code to compute the
     /// result, encoded as an int value: 0=no ticket, 1=small ticket, 2=big ticket. If speed is 60 or
