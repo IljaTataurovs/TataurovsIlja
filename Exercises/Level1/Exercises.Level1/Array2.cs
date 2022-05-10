@@ -17,7 +17,15 @@ public class Array2
     /// </summary>
     public int CountEvens(int[] nums)
     {
-        throw new NotImplementedException();
+        int evenCount = 0;
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] % 2 == 0)
+            {
+                evenCount++;
+            }
+        }
+        return evenCount;
     }
 
     /// <summary>
@@ -31,7 +39,20 @@ public class Array2
     /// </summary>
     public int BigDiff(int[] nums)
     {
-        throw new NotImplementedException();
+        int max = nums[0]; 
+        int min = nums[0];
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (nums[i]>max)
+            {
+                max=nums[i];
+            }
+            if (nums[i] < min)
+            {
+                min = nums[i];
+            }
+        }
+        return (max- min );
     }
 
     /// <summary>
@@ -47,8 +68,27 @@ public class Array2
     /// </summary>
     public int CenteredAverage(int[] nums)
     {
-        throw new NotImplementedException();
-    }
+        //Array.Sort(nums);
+        int max = nums[0];
+        int min  = nums[0];
+        int sum = nums[0];
+        
+     for (int i = 1; i < nums.Length ; i++)
+     {
+         sum += nums[i];
+          if(nums[i] < min)
+            {
+                min =nums[i];
+            }
+          if (nums[i] > max)
+            {
+                max = nums[i];
+            }
+     }
+        
+     return (sum-max-min) / (nums.Length-2);
+
+ }
 
     /// <summary>
     /// Return the sum of the numbers in the array, returning 0 for an empty array. Except the
@@ -61,7 +101,24 @@ public class Array2
     /// </summary>
     public int Sum13(int[] nums)
     {
-        throw new NotImplementedException();
+        int unlucky = 13;
+        int sum = 0;
+      if(nums.Length == 0)
+        {
+            return 0;
+        }
+      for(int i = 0; i < nums.Length; i++)
+        {
+            if (nums[i]== unlucky)
+            {
+                i++;
+            }
+            else
+            {
+                sum += nums[i];
+            }
+        }
+        return sum;
     }
 
     /// <summary>
@@ -75,7 +132,21 @@ public class Array2
     /// </summary>
     public int Sum67(int[] nums)
     {
-        throw new NotImplementedException();
+        int sum = 0;
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] != 6)
+            {
+                sum += nums[i];
+            }
+            else
+              while  (nums[i] != 7)
+            {
+                i++;
+            }
+            
+        }
+        return sum;
     }
 
     /// <summary>
@@ -87,7 +158,14 @@ public class Array2
     /// </summary>
     public bool Has22(int[] nums)
     {
-        throw new NotImplementedException();
+        for (int i = 0; i < nums.Length-1; i++)
+        {
+            if (nums[i]==2 && nums[i + 1] == 2)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     /// <summary>
@@ -99,7 +177,14 @@ public class Array2
     /// </summary>
     public bool Lucky13(int[] nums)
     {
-        throw new NotImplementedException();
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] == 1 || nums[i] == 3)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     /// <summary>
@@ -111,7 +196,16 @@ public class Array2
     /// </summary>
     public bool Sum28(int[] nums)
     {
-        throw new NotImplementedException();
+        int sum = 0;
+        for (int i = 0; i < nums.Length; i++)
+        {
+           
+            if (nums[i] == 2 )
+            {
+                sum += nums[i];
+            }
+        }
+        return sum==8;
     }
 
     /// <summary>
@@ -123,7 +217,25 @@ public class Array2
     /// </summary>
     public bool More14(int[] nums)
     {
-        throw new NotImplementedException();
+        int count1=0;
+        int count4 =0;
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if(nums[i] == 1)
+            {
+                count1++;
+            }
+            if(nums[i] == 4)
+            {
+                count4 ++;
+            }
+    
+        }
+        if (count1 > count4)
+        {
+            return true;
+        }
+        return false;
     }
 
     /// <summary>
@@ -138,7 +250,12 @@ public class Array2
     /// </summary>
     public int[] FizzArray(int n)
     {
-        throw new NotImplementedException();
+        int[] b = new int[n];
+        for (int i = 0; i < n; i++)
+        {
+            b[i]=i;
+        }
+        return b;
     }
 
     /// <summary>
@@ -150,7 +267,16 @@ public class Array2
     /// </summary>
     public bool Only14(int[] nums)
     {
-        throw new NotImplementedException();
+        for (int i = 0; i < nums.Length; i++)
+        {
+          
+            if (nums[i] != 1 && nums[i] != 4)
+            {
+                return false;
+            }
+            
+        }
+        return true;
     }
 
     /// <summary>
@@ -164,7 +290,12 @@ public class Array2
     /// </summary>
     public string[] FizzArray2(int nums)
     {
-        throw new NotImplementedException();
+       string [] b = new string[nums];
+        for (int i = 0; i < nums; i++)
+        {
+            b[i] = i.ToString();
+        }
+        return b;
     }
 
     /// <summary>
@@ -176,7 +307,25 @@ public class Array2
     /// </summary>
     public bool No14(int[] nums)
     {
-        throw new NotImplementedException();
+        bool found1 = false;
+        bool found4 = false;
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] == 1)
+            {
+                found1 = true;
+            }
+            if ( nums[i] == 4)
+            {
+                found4 = true;
+            }
+        
+        }
+        if (found1 && found4)
+        {
+            return false;
+        }
+        return true;
     }
 
     /// <summary>
@@ -189,8 +338,17 @@ public class Array2
     /// isEverywhere([1, 2, 1, 3, 4], 1) → false
     /// </summary>
     public bool IsEverywhere(int[] nums, int val)
+
     {
-        throw new NotImplementedException();
+       
+        for (int i = 0; i < nums.Length-1; i++)
+        {
+            if (nums[i]!=val &&nums[i+1]!=val)
+            {
+                return false;
+            }
+        }
+        return true; ;
     }
 
     /// <summary>
@@ -203,7 +361,23 @@ public class Array2
     /// </summary>
     public bool Either24(int[] nums)
     {
-        throw new NotImplementedException();
+        int count2 = 0;
+        int count4 = 0;
+        for (int i = 0; i < nums.Length-1; i++)
+        {
+            
+            if (nums[i]==2 && nums[i + 1] == 2)
+            {
+                count2++;
+            }
+            if (nums[i] == 4 && nums[i + 1] == 4)
+            {
+                count4++;
+            }
+        }
+        if (count2 == count4)
+        { return false; }
+        return true;
     }
 
     /// <summary>
@@ -217,7 +391,17 @@ public class Array2
     /// </summary>
     public int MatchUp(int[] nums1, int[] nums2)
     {
-        throw new NotImplementedException();
+        int count = 0;
+        for (int i = 0; i < nums1.Length; i++)
+        {
+           
+                if (Math.Abs(nums1[i] - nums2[i])<=2 && nums1[i]!=nums2[i])
+                {
+                    count++;
+                }
+           
+        }
+        return count;
     }
 
     /// <summary>
@@ -230,7 +414,15 @@ public class Array2
     /// </summary>
     public bool Has77(int[] nums)
     {
-        throw new NotImplementedException();
+        for (int i = 2; i < nums.Length; i++)
+        {
+            if(nums[i-2]==7 && nums[i-1]==7|| nums[i - 2] == 7 && nums[i] == 7 || nums[i - 1] == 7 && nums[i] == 7)
+            {
+                return true;
+            }
+            
+        }
+        return false;
     }
 
     /// <summary>
@@ -243,7 +435,19 @@ public class Array2
     /// </summary>
     public bool Has12(int[] nums)
     {
-        throw new NotImplementedException();
+        int count1 = 0;
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] == 1)
+            {
+                count1++;
+            }
+            if (nums[i] == 2&& count1 >= 1)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     /// <summary>
@@ -256,7 +460,19 @@ public class Array2
     /// </summary>
     public bool ModThree(int[] nums)
     {
-        throw new NotImplementedException();
+       
+        for (int i = 2; i < nums.Length; i++)
+        {
+            if (nums[i]%2==0 && nums[i-1] % 2 == 0&& nums[i-2] % 2 == 0)
+            {
+                return true;
+            }
+            if (nums[i] % 2 != 0 && nums[i - 1] % 2 != 0 && nums[i - 2] % 2 != 0)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     /// <summary>
@@ -269,7 +485,17 @@ public class Array2
     /// </summary>
     public bool HaveThree(int[] nums)
     {
-        throw new NotImplementedException();
+        int count3 = 0;
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] == 3)
+            {
+                count3++;
+                i++;
+            }
+
+        }
+        return count3 == 3;
     }
 
     /// <summary>
@@ -281,7 +507,41 @@ public class Array2
     /// </summary>
     public bool TwoTwo(int[] nums)
     {
-        throw new NotImplementedException();
+        
+            bool twice = true;
+            if (nums.Length <= 1)
+            {
+            return false;
+            }
+
+            if (nums.Length == 1 && nums[0] == 2)
+            {
+                return false;
+            }
+
+            if (nums.Length > 1 && nums[0] == 2 && nums[1] != 2)
+            {
+                return false;
+            }
+
+            if (nums.Length > 1 && nums[nums.Length - 1] == 2 && nums[nums.Length - 2] != 2)
+            {
+                return false;
+            }
+
+            for (int i = 1; i < nums.Length - 1; i++)
+            {
+                if (nums[i] == 2)
+                {
+                    if (nums[i - 1] != 2 && nums[i + 1] != 2)
+                    {
+                        twice = false;
+                    }
+                }
+            }
+
+            return twice;
+        
     }
 
     /// <summary>
@@ -295,7 +555,14 @@ public class Array2
     /// </summary>
     public bool SameEnds(int[] nums, int val)
     {
-        throw new NotImplementedException();
+        for (int i = 0; i < val; i++)
+        {
+            if(nums[i]!= nums[nums.Length - val + i])
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     /// <summary>
@@ -308,7 +575,14 @@ public class Array2
     /// </summary>
     public bool TripleUp(int[] nums)
     {
-        throw new NotImplementedException();
+        for (int i = 2; i < nums.Length; i++)
+        {
+            if (nums[i]-1 == nums[i-1] && nums[i-1]-1==nums[i-2])
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     /// <summary>
@@ -323,7 +597,13 @@ public class Array2
     /// </summary>
     public int[] FizzArray3(int start, int end)
     {
-        throw new NotImplementedException();
+        int size = end-start;
+        int[] nums = new int[size];
+        for (int i = 0; i < size; i++)
+        {
+            nums[i] = start++;
+        }
+      return nums;
     }
 
     /// <summary>
@@ -336,7 +616,16 @@ public class Array2
     /// </summary>
     public int[] ShiftLeft(int[] nums)
     {
-        throw new NotImplementedException();
+        int temporary = 0;
+    
+        for (int i = 0; i < nums.Length-1; i++)
+        {
+            temporary=nums[i];
+            nums[i]=nums[i+1];
+            nums[i+1]=temporary;
+        }
+       
+        return nums;
     }
 
     /// <summary>
@@ -350,7 +639,16 @@ public class Array2
     /// </summary>
     public int[] TenRun(int[] nums)
     {
-        throw new NotImplementedException();
+        for (int i = 0; i < nums.Length-1; i++)
+        {
+            if (nums[i] % 10 == 0&& nums[i + 1] % 10 != 0)
+            {
+               
+                    nums[i+1] = nums[i];
+               
+            }
+        }
+        return nums;
     }
 
     /// <summary>
@@ -364,7 +662,14 @@ public class Array2
     /// </summary>
     public int[] Pre4(int[] nums)
     {
-        throw new NotImplementedException();
+        int p = 0;
+        int[] arr;
+        while (nums[p] != 4)
+            p++;
+        arr = new int[p];
+        for (int i = 0; i < p; i++)
+            arr[i] = nums[i];
+        return arr;
     }
 
     /// <summary>
@@ -378,7 +683,14 @@ public class Array2
     /// </summary>
     public int[] Post4(int[] nums)
     {
-        throw new NotImplementedException();
+        int p = nums.Length - 1;
+        int[] arr;
+        while (nums[p] != 4)
+            p--;
+        arr = new int[nums.Length - 1 - p];
+        for (int i = p + 1; i < nums.Length; i++)
+            arr[i - p - 1] = nums[i];
+        return arr;
     }
 
     /// <summary>
@@ -392,7 +704,16 @@ public class Array2
     /// </summary>
     public int[] NotAlone(int[] nums, int val)
     {
-        throw new NotImplementedException();
+       
+        for (int i = 1; i < nums.Length-1; i++)
+        {
+            if(nums[i] == val&& nums[i-1]!= val&& nums[i+1] != val)
+            {
+                nums[i] = Math.Max(nums[i-1], nums[i+1]);
+            }
+        }
+        return nums;
+
     }
 
     /// <summary>
@@ -407,7 +728,27 @@ public class Array2
     /// </summary>
     public int[] ZeroFront(int[] nums)
     {
-        throw new NotImplementedException();
+        int zeroCount = 0;
+        int[] arrey = new int[nums.Length];
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] == 0)
+            {
+                zeroCount++;
+            }
+        }
+        for (int i = 0; i < zeroCount; i++)
+        {
+            arrey[i] = 0;
+        }
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (nums[i]!=0)
+            {
+                arrey[zeroCount++]=nums[i];
+            }
+        }
+        return arrey;
     }
 
     /// <summary>
@@ -422,7 +763,16 @@ public class Array2
     /// </summary>
     public int[] WithoutTen(int[] nums)
     {
-        throw new NotImplementedException();
+        int tenCount = 0;
+        int[] arrey = new int[nums.Length];
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] != 10)
+            {
+                arrey[tenCount++]=nums[i];
+            }
+        }
+        return arrey;
     }
 
     /// <summary>
@@ -436,7 +786,20 @@ public class Array2
     /// </summary>
     public int[] ZeroMax(int[] nums)
     {
-        throw new NotImplementedException();
+        int maxNumber = 0;
+        for (int i = nums.Length-1; i >=0; i--)
+        {
+            if ( nums[i]%2!=0)
+            {
+               maxNumber = Math.Max(maxNumber, nums[i]);
+            }
+            if (nums[i] == 0)
+            {
+                nums[i] = maxNumber;
+            }
+        }
+
+        return nums;
     }
 
     /// <summary>
@@ -451,7 +814,20 @@ public class Array2
     /// </summary>
     public int[] EvenOdd(int[] nums)
     {
-        throw new NotImplementedException();
+        int temporary = 0;
+        int postfix = 0;
+       
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] % 2 == 0)
+            {
+                temporary=nums[postfix];
+                nums[postfix] = nums[i];
+                nums[i]=temporary;
+                postfix++;
+            }
+        }
+        return nums;
     }
 
     /// <summary>
@@ -470,7 +846,28 @@ public class Array2
     /// </summary>
     public string[] FizzBuzz(int start, int end)
     {
-        throw new NotImplementedException();
+    string[]stringArrey = new string[end-start];
+        int postfix = 0;
+        for (int i = start; i < end; i++)
+        {
+            if (i % 15 == 0)
+            {
+                stringArrey[i - start] = "FizzBuzz";
+            }
+            else if (i % 3 == 0)
+            {
+                stringArrey[i - start] = "Fizz";
+            }
+            else if (i % 5 == 0)
+            {
+                stringArrey[i - start] = "Buzz";
+            }
+            else
+            {
+                stringArrey[i - start] = i.ToString();
+            }
+        }
+        return stringArrey;
     }
 }
 
